@@ -142,12 +142,13 @@ public class MainSceneSetup : MonoBehaviour
         CreateSpriteObject("Prateleira", new Vector3(3f, floorY + 1.2f, 0f),
             new Vector3(2.5f, 0.3f, 1f), new Color(0.5f, 0.4f, 0.35f));
 
-        // Janela / luz de fundo simples
+        // Janela / luz de fundo simples (SpriteRenderer amarelo para simular luz, sem depender do pacote 2D/URP)
         GameObject luz = new GameObject("Luz do Ateliê");
         luz.transform.position = new Vector3(0f, 2f, 0f);
-        var light = luz.AddComponent<Light2D>();
-        light.color = new Color(1f, 0.95f, 0.8f);
-        light.intensity = 1.2f;
-        light.pointLightOuterRadius = 8f;
+        var luzSr = luz.AddComponent<SpriteRenderer>();
+        luzSr.color = new Color(1f, 0.95f, 0.8f);
+        luzSr.drawMode = SpriteDrawMode.Simple;
+        luzSr.size = new Vector2(4f, 4f);
+        luzSr.sortingOrder = -1; // fica atrás do player
     }
 }
