@@ -35,7 +35,7 @@ public class SpriteImportSettings : MonoBehaviour
             importer.spriteImportMode = SpriteImportMode.Multiple;
             importer.spritePixelsPerUnit = 32f;
             importer.filterMode = FilterMode.Point;
-            importer.compression = TextureImporterCompression.Uncompressed;
+            importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.isReadable = false;
             importer.mipmapEnabled = false;
             importer.sRGBTexture = true;
@@ -49,7 +49,7 @@ public class SpriteImportSettings : MonoBehaviour
                 {
                     name = $"frame_{i}",
                     rect = new Rect(i * 96, 0, 96, 80),
-                    alignment = SpriteAlignment.Center,
+                    alignment = (int)SpriteAlignment.Center,
                     pivot = new Vector2(0.5f, 0.5f)
                 };
             }
